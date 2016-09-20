@@ -112,6 +112,29 @@ disable a swipe direction
   resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 ```
 
+## Custom Usage
+
+Do your reside menu configurations, by creating an instance of ResideMenu with your custom layout's resource Ids. If you want to use default layout, just pass that variable as -1.
+
+```java
+        resideMenu = new ResideMenu(activity, R.layout.menu_left, R.layout.menu_right);
+        resideMenu.setBackground(R.drawable.menu_background);
+        resideMenu.attachToActivity(activity);
+        resideMenu.setScaleValue(0.5f);
+
+        resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
+        resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_LEFT);
+```
+
+As your configuration's completed, now you can customize side menus by getting instances of them as following:
+
+```java
+        View leftMenu = resideMenu.getLeftMenuView();
+        // TODO: Do whatever you need to with leftMenu
+        View rightMenu = resideMenu.getRightMenuView();
+        // TODO: Do whatever you need to with rightMenu
+```
+
 ##Ignored Views
 On some occasions, the slipping gesture function for locking/unlocking menu, may have conflicts with your widgets such as viewpager.By then you can add the viewpager to ignored view.
 ```java
